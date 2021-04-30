@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Unanswered {% endblock %}
+
+{% block nav %}
+  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+  {% if not loggeduser %}
+    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+  {% endif %}
+  {% if loggeduser %}
+    {% if loggeduser['admin']==0 and loggeduser['expert']==0 %}
+        <a class="nav-link" href="{{ url_for('ask_question') }}">Ask Question</a>
+    {% endif %}
+  {% endif %}
+  {% if loggeduser and not(loggeduser['admin']) and loggeduser['expert']==1 %}
+    <a class="nav-link active" href="{{ url_for('unanswered') }}">Answer Question</a>
+  {% endif %}
+  {% if loggeduser and loggeduser['admin']==1 %}
+    <a class="nav-link" href="{{ url_for('users') }}">User Setup</a>
+  {% endif %}
+  {% if loggeduser %}
+    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+  {% endif %}
+{% endblock %}
+
+
+{% block pageheader %} Unanswered Questions {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+          <div class="list-group">
+            {% for question in questions %}
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">{{ question['question_text'] }}</h4>
+              <p class="list-group-item-text">Asked by: {{ question['name'] }}</p>
+              <a class="btn btn-success" href="{{ url_for('answer_question',question_id=question['id']) }}" role="button">Answer</a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
