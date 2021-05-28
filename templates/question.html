@@ -37,6 +37,9 @@
         {% if loggeduser and loggeduser['expert']==1 and question['exp_id']==loggeduser['id']%}
           <a class="btn btn-warning float-end" style="display: inline-block;" href="{{ url_for('update_answer',que_id=question['id']) }}" role="button">Update</a>
         {% endif %}
+        {% if loggeduser and (question['askedby_id']==loggeduser['id'] or loggeduser['admin']==1) %}
+          <p><a class="btn btn-danger float-end" style="display: inline-block;" href="{{ url_for('deletequestion',questionid=question['id']) }}" role="button">Delete</a></p>
+        {% endif %}
     </div>
 </div>
 

@@ -141,7 +141,7 @@ def unanswered():
 def question(que_id):
     loggeduser = get_user()
     db = get_db()
-    query = '''SELECT questions.id,questions.question_text,questions.answer_text,askers.name AS asker_name,
+    query = '''SELECT questions.askedby_id,questions.id,questions.question_text,questions.answer_text,askers.name AS asker_name,
                 experts.name as expert_name,questions.expert_id as exp_id FROM questions 
                 JOIN users AS askers ON askers.id=questions.askedby_id 
                 JOIN users AS experts ON experts.id = questions.expert_id 
@@ -228,6 +228,34 @@ def deleteuser(userid):
     db.execute("DELETE FROM users WHERE id=?",[userid])
     db.commit()
     return redirect('/users')
+
+@app.route('/deletequestion/<questionid>')
+def deletequestion(questionid):
+    loggeduser = get_user()
+
+    db = get_db()
+    cursor = db.execute("SELECT * FROM questions where id=?",[questionid])
+    uid = cursor.fetchone()
+
+    adminuser = False
+    expertuser = False
+    validuser = False 
+
+    #only admin and user who asked the question is able to access this route
+    if not loggeduser:
+        return redirect(url_for('login'))
+    if loggeduser['expert']==1 and loggeduser['admin']==0:
+        expertuser = True
+    if loggeduser['id'] == uid['askedby_id']:
+        validuser = True
+    if loggeduser['admin']==1:
+        adminuser = True
+    if expertuser==True:
+        return redirect(url_for('home'))
+    elif adminuser==True or validuser==True:
+        db.execute("DELETE FROM questions WHERE id=?",[questionid])
+        db.commit()
+        return redirect(url_for('home'))
 
 if __name__ == "__main__":
     app.run(debug=True)

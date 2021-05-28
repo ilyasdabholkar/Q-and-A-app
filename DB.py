@@ -1,7 +1,8 @@
 from flask import g
 import sqlite3
+import os
 
-url = "D:/Q and A app/local.db"
+url = os.getcwd().replace("\\","/") + '/local.db'
 
 #establish connection to database
 def connect_db():
