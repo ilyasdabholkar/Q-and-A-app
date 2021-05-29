@@ -12,11 +12,15 @@ An admin user can promote/demote a user to expertuser or normal user and can als
 
 ### Home Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Home.PNG" width="800" height="420" alt="unable to load image">
+
 ### Register Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Register.PNG" width="800" height="420" alt="unable to load image">
+
 ### Login Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Login.PNG" width="800" height="420" alt="unable to load image">
+
 ### Ask Question Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/User-AskQuestion.PNG" width="800" height="420" alt="unable to load image">
+
 ### View Asked Questions Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/User-ViewAskedQuestions.PNG" width="800" height="420" alt="unable to load image">
