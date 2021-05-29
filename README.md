@@ -11,8 +11,8 @@ An admin user Manages all the users and content seen on homepage.<br/>
 An admin user can promote/demote a user to expertuser or normal user and can also delete questions which seem in appropriate.<br/>
 
 ### Home Page
-<img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Home.PNG" width="800" height="480" alt="unable to load image">
+<center><img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Home.PNG" width="800" height="420" alt="unable to load image"></center>
 ### Register Page
-<img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Register.PNG" width="800" height="480" alt="unable to load image">
+<img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Register.PNG" width="800" height="420" alt="unable to load image">
 ### Login Page
-<img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Login.PNG" width="800" height="480" alt="unable to load image">
+<img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Login.PNG" width="800" height="420" alt="unable to load image">
