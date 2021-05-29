@@ -53,7 +53,7 @@ def register():
             db.close()
             return "<h1>User registered</h1>"
     except sqlite3.IntegrityError:
-        flash(f"User {user} already esists,try a different username")
+        flash(f"User {user} already exists,try a different username")
     return render_template('register.html',loggeduser=loggeduser)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -163,6 +163,29 @@ def users():
     cursor = db.execute("SELECT * FROM users")
     result = cursor.fetchall()
     return render_template('users.html',loggeduser=loggeduser,result=result)
+
+@app.route('/askedquestions')
+def askedquestions():
+    loggeduser = get_user()
+    db = get_db()
+    if not loggeduser:
+        return redirect(url_for('login'))
+    if loggeduser['expert']==1 and loggeduser['admin']==0:
+        return redirect(url_for('home'))
+
+    if loggeduser['admin']==0 and loggeduser['expert']==0:
+        cursor = db.execute("SELECT * FROM questions where askedby_id = ?",[loggeduser['id']])
+        results = cursor.fetchall()
+    elif loggeduser['admin']==1:
+        query = '''SELECT questions.id,questions.question_text,askers.name as asker_name,experts.name as expert_name 
+                FROM questions JOIN users AS askers ON askers.id=questions.askedby_id 
+                JOIN users AS experts ON experts.id = questions.expert_id 
+                '''
+        cursor = db.execute(query)
+        results = cursor.fetchall()
+    return render_template('askedquestions.html',loggeduser=loggeduser,data=results)
+
+
 
 @app.route('/update/<que_id>')
 def update_answer(que_id):

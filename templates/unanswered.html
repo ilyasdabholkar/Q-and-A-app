@@ -3,7 +3,7 @@
 {% block title %} Unanswered {% endblock %}
 
 {% block nav %}
-  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+  <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
   {% if not loggeduser %}
     <a class="nav-link" href="{{ url_for('register') }}">Register</a>
     <a class="nav-link" href="{{ url_for('login') }}">Login</a>
@@ -11,13 +11,15 @@
   {% if loggeduser %}
     {% if loggeduser['admin']==0 and loggeduser['expert']==0 %}
         <a class="nav-link" href="{{ url_for('ask_question') }}">Ask Question</a>
+        <a class="nav-link" href="{{ url_for('askedquestions') }}">Asked Question</a>
     {% endif %}
   {% endif %}
   {% if loggeduser and not(loggeduser['admin']) and loggeduser['expert']==1 %}
-    <a class="nav-link active" href="{{ url_for('unanswered') }}">Answer Question</a>
+    <a class="nav-link" href="{{ url_for('unanswered') }}">Answer Question</a>
   {% endif %}
   {% if loggeduser and loggeduser['admin']==1 %}
     <a class="nav-link" href="{{ url_for('users') }}">User Setup</a>
+    <a class="nav-link" href="{{ url_for('askedquestions') }}">All Question</a>
   {% endif %}
   {% if loggeduser %}
     <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>

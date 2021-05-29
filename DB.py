@@ -1,3 +1,4 @@
+from sqlite3.dbapi2 import connect
 from flask import g
 import sqlite3
 import os
