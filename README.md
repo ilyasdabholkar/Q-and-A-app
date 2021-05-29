@@ -11,4 +11,4 @@
 -An admin user can promote/demote a user to expertuser or normal user and can also delete questions which seem in appropriate.
 
 ### Home Page
-<img src="/images/Home.png" width="720" height="480" alt="unable to load image"/>
+<img src="Q-and-A-app/images/Home.png" width="720" height="480" alt="unable to load image"/>
