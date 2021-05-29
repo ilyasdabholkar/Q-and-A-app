@@ -11,5 +11,5 @@
 -An admin user can promote/demote a user to expertuser or normal user and can also delete questions which seem in appropriate.
 
 ### Home Page
-![MarineGEO circle logo](/images/Home.png "Home")
+![MarineGEO circle logo](Q-and-A-app/images/Home.png "Home")
 <img src="images/Home.png" width="720" height="480" alt="unable to load image">
