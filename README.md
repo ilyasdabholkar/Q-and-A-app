@@ -24,10 +24,10 @@ An admin user can promote/demote a user to expertuser or normal user and can als
 ### Ask Question Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/User-AskQuestion.PNG" width="800" height="420" alt="unable to load image">
 
-## Expert User
-
 ### View Asked Questions Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/User-ViewAskedQuestions.PNG" width="800" height="420" alt="unable to load image">
+
+## Expert User
 
 ### Answer Questions Page
 <img src="https://github.com/ilyasdabholkar/Q-and-A-app/blob/main/images/Expert-AnswerQuestion.PNG" width="800" height="420" alt="unable to load image">
